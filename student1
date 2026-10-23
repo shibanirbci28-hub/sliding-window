@@ -1,0 +1,28 @@
+int countStudents(int*students,int n, int*sandwiches, int sandwichessize) {
+    int one=0, zero=0;
+    for (int i=0;i<n;i++){
+        if (students[i]==1)
+            one++;
+        else
+            zero++;
+    }
+    for (int i=0;i<n;i++){
+        if (sandwiches[i]==1){
+            if(one--==0)
+               return zero;
+        } else {
+            if(zero--==0)
+               return one;
+        }
+    }
+    return 0;
+}
+Input
+students =
+[1,1,0,0]
+sandwiches =
+[0,1,0,1]
+Output
+0
+Expected
+0
